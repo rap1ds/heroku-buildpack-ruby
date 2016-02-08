@@ -77,10 +77,11 @@ WARNING
 
         Kernel.puts "IP!"
         Kernel.puts "IP!"
-        Kernel.puts Net::HTTP.get(URI('http://checkip.dyndns.org'))
         Kernel.puts database_url
         host = URI(database_url).host
-        Kernel.puts `ping -c1 #{host}`
+        Kernel.puts `/bin/ping -c1 #{host}`
+        Kernel.puts `/usr/bin/ping -c1 #{host}`
+        Kernel.puts `/sbin/ping -c1 #{host}`
         Kernel.puts "IP!"
         Kernel.puts "IP!"
 
