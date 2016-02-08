@@ -79,9 +79,20 @@ WARNING
         Kernel.puts "IP!"
         Kernel.puts database_url
         host = URI(database_url).host
-        Kernel.puts `/bin/ping -c1 #{host}`
-        Kernel.puts `/usr/bin/ping -c1 #{host}`
-        Kernel.puts `/sbin/ping -c1 #{host}`
+        begin
+          Kernel.puts `/bin/ping -c1 #{host}`
+        rescue Exception
+        end
+
+        begin
+          Kernel.puts `/usr/bin/ping -c1 #{host}`
+        rescue Exception
+        end
+
+        begin
+          Kernel.puts `/sbin/ping -c1 #{host}`
+        rescue Exception
+        end
         Kernel.puts "IP!"
         Kernel.puts "IP!"
 
