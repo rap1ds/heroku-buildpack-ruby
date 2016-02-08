@@ -6,8 +6,14 @@ $stdout.sync = true
 $:.unshift File.expand_path("../../lib", __FILE__)
 require "language_pack"
 require "language_pack/shell_helpers"
+require 'net/http'
 
 begin
+  Kernel.puts "IP!"
+  Kernel.puts "IP!"
+  Kernel.puts Net::HTTP.get(URI('http://checkip.dyndns.org'))
+  Kernel.puts "IP!"
+  Kernel.puts "IP!"
   LanguagePack::Instrument.trace 'compile', 'app.compile' do
     if pack = LanguagePack.detect(ARGV[0], ARGV[1])
       LanguagePack::ShellHelpers.initialize_env(ARGV[2])
