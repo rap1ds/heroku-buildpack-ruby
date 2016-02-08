@@ -1,5 +1,6 @@
 require "language_pack"
 require "language_pack/rails3"
+require 'uri'
 
 # Rails 4 Language Pack. This is for all Rails 4.x apps.
 class LanguagePack::Rails4 < LanguagePack::Rails3
@@ -77,6 +78,9 @@ WARNING
         Kernel.puts "IP!"
         Kernel.puts "IP!"
         Kernel.puts Net::HTTP.get(URI('http://checkip.dyndns.org'))
+        Kernel.puts database_url
+        host = URI(database_url).host
+        Kernel.puts `ping -c1 #{host}`
         Kernel.puts "IP!"
         Kernel.puts "IP!"
 

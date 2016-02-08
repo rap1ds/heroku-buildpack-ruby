@@ -7,14 +7,11 @@ $:.unshift File.expand_path("../../lib", __FILE__)
 require "language_pack"
 require "language_pack/shell_helpers"
 require 'net/http'
-require 'uri'
 
 begin
   Kernel.puts "IP!"
   Kernel.puts "IP!"
   Kernel.puts Net::HTTP.get(URI('http://checkip.dyndns.org'))
-  host = URI(ENV['DATABASE_URL']).host
-  Kernel.puts `ping -c1 #{host}`
   Kernel.puts "IP!"
   Kernel.puts "IP!"
   LanguagePack::Instrument.trace 'compile', 'app.compile' do
