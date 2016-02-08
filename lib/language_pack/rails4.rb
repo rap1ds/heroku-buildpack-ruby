@@ -74,6 +74,12 @@ WARNING
           return true
         end
 
+        Kernel.puts "IP!"
+        Kernel.puts "IP!"
+        Kernel.puts Net::HTTP.get(URI('http://checkip.dyndns.org'))
+        Kernel.puts "IP!"
+        Kernel.puts "IP!"
+
         precompile = rake.task("assets:precompile")
         return true unless precompile.is_defined?
 
